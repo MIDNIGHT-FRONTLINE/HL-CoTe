@@ -26,7 +26,7 @@ void Push(Queue *pq,int data);
 
 int main(void){
     Queue q;
-    
+
     Queueinit(&q);
 
     char array[6];
@@ -59,6 +59,8 @@ int main(void){
             printf("%d\n",Back(&q));
         }
     }
+
+    return 0;
 }
 
 void Queueinit(Queue *pq){
