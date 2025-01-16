@@ -16,10 +16,9 @@ int main(void)
 		line[i] = i + 1;
 		scanf("%d", &num1);
 
-		for (int j = i; j > i - num1; j--)
-			swap(&line[j], &line[j - 1]);
-
-
+		for (int j = i; j > i - num1; j--){
+            swap(&line[j], &line[j - 1]);
+        }
 	}
 
 	for (int i = 0; i < num2; i++)
@@ -33,7 +32,7 @@ int main(void)
 int swap(int* x, int* y)
 {
 	int temp;
-    
+
 	temp = *x;
 	*x = *y;
 	*y = temp;
