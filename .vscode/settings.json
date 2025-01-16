@@ -3,6 +3,8 @@
         "*.ndjson": "jsonl",
         "*.dbclient-js": "javascript",
         "stdio.h": "c",
-        "xutility": "c"
+        "xutility": "c",
+        "typeinfo": "c",
+        "ratio": "c"
     }
 }

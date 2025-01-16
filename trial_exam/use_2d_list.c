@@ -1,34 +1,42 @@
 #include <stdio.h>
 
-void find(int arr[], int *min, int *max, int size);
-
 int main(){
-    int arr[5];
-    int min, max;
+    int N, M;
 
-    for(int i = 0; i < sizeof(arr); i++){
-        scanf("%d", arr[i]);
+    scanf("%d %d", &N, &M);
+
+    if (N <= 2 || M <= 2){
+        return 0;
     }
-    // scanf("%d %d %d %d %d", arr[0], arr[1], arr[2], arr[3], arr[4]);
 
-    find(arr, &min, &max, sizeof(arr));
+    int arr[N][M];
+    int total = 0;
+    int edge = 0;
+    int in = 0;
 
-    printf("min = %d\n", min);
-    printf("max = %d\n", max);
+    for (int i = 0; i < N; i++){
+        for (int j = 0; j < M; j++){
+            printf("arr[%d][%d]: ", i, j);
+            scanf("%d", &arr[i][j]);
+            total += arr[i][j];
+        }
+    }
+
+    for(int i = 0; i < N; i++){
+        for(int j = 0; j < M; j++){
+            if (i == 0 || i == N - 1 || j == 0 || j == M - 1){
+                edge += arr[i][j];
+            }
+            else{
+                in += arr[i][j];
+            }
+        }
+    }
+
+    printf("total: %d\n", total);
+    printf("total_aver: %.2f\n", (float)total / (N * M));
+    printf("edge: %d\n", edge);
+    printf("inner: %d\n", in);
 
     return 0;
-}
-
-void find(int arr[], int *min, int *max, int size){
-    *min = arr[0];
-    *max = arr[0];
-
-    for(int i = 0; i < size; i++){
-        if(arr[i] < *min){
-            *min = arr[i];
-        }
-        else if(arr[i] > *max){
-            *max = arr[i];
-        }
-    }
 }
